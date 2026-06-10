@@ -1523,6 +1523,13 @@ VENTANA EMERGENTE DE PORTAFOLIO (popup)
 
 .portfolio-popup .pp-prev i {
   transform: rotate(180deg);
+  position: relative;
+  left: -2px;
+}
+
+.portfolio-popup .pp-next i {
+  position: relative;
+  left: 2px;
 }
 
 .portfolio-popup .pp-counter {

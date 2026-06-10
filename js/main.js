@@ -28,6 +28,14 @@
 
   function navigateToSection(hash) {
     if (!hash || hash === "#") hash = "#inicio";
+    
+    let isProjectHash = false;
+    let actualHash = hash;
+    if (/^#project-\d+$/.test(hash)) {
+      isProjectHash = true;
+      actualHash = "#portafolio";
+    }
+
     // deactivate existing active 'section'
     const activeSection = document.querySelector(".section.active");
     if (activeSection) {
@@ -35,7 +43,7 @@
       activeSection.classList.remove("active");
     }
     // activate new 'section'
-    const targetSection = document.querySelector(hash);
+    const targetSection = document.querySelector(actualHash);
     if (targetSection) {
       targetSection.classList.add("active");
       targetSection.classList.remove("hide");
@@ -53,7 +61,7 @@
 
     /* activate the new navigation menu 'link-item' */
     document.querySelectorAll(".link-item").forEach((item) => {
-      if (hash === item.hash) {
+      if (actualHash === item.hash) {
         item.classList.add("active", "inner-shadow");
         item.classList.remove("outer-shadow", "hover-in-shadow");
       }
@@ -215,26 +223,40 @@ function bodyScrollingToggle() {
     }
   })
 
+  function openProject(index) {
+    itemIndex = index;
+    screenshots = portfolioItems[itemIndex].querySelector(".portfolio-item-img img").getAttribute("data-screenshots");
+    // convert screenshots into array
+    screenshots = screenshots.split(",");
+    if (screenshots.length === 1) {
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+    }
+    else {
+      prevBtn.style.display = "block";
+      nextBtn.style.display = "block";
+    }
+    slideIndex = 0;
+    if (!popup.classList.contains("open")) {
+      popupToggle();
+    }
+    popupSlideshow();
+    popupDetails();
+  }
+
   portfolioItemsContainer.addEventListener("click", (event) => {
     if (event.target.closest(".portfolio-item-inner")) {
       const portfolioItem = event.target.closest(".portfolio-item-inner").parentElement;
       //get the portfolio index
-      itemIndex = Array.from(portfolioItem.parentElement.children).indexOf(portfolioItem);
-      screenshots = portfolioItems[itemIndex].querySelector(".portfolio-item-img img").getAttribute("data-screenshots");
-      // convert screenshots into array
-      screenshots = screenshots.split(",");
-      if (screenshots.length === 1) {
-        prevBtn.style.display = "none";
-        nextBtn.style.display = "none";
+      const idx = Array.from(portfolioItem.parentElement.children).indexOf(portfolioItem);
+      const img = portfolioItems[idx].querySelector(".portfolio-item-img img");
+      const src = img.getAttribute("src");
+      const match = src.match(/project-\d+/);
+      if (match) {
+        window.location.hash = match[0];
+      } else {
+        openProject(idx);
       }
-      else {
-        prevBtn.style.display = "block";
-        nextBtn.style.display = "block";
-      }
-      slideIndex = 0;
-      popupToggle();
-      popupSlideshow();
-      popupDetails();
     }
   })
 
@@ -243,6 +265,7 @@ function bodyScrollingToggle() {
     if (projectDetailsContainer.classList.contains("active")) {
       popupDetailsToggle();
     }
+    window.location.hash = "portafolio";
   })
 
   function popupToggle() {
@@ -255,7 +278,7 @@ function bodyScrollingToggle() {
     const popupImg = popup.querySelector(".pp-img");
     // activate loader until the popupImg loaded
     popup.querySelector(".pp-loader").classList.add("active");
-    popupImg.src = imgSrc;
+    popupImg.src = imgSrc.trim() + "?v=" + Date.now();
     popupImg.onload = () => {
       // deactivate loader after the popupImg loaded
       popup.querySelector(".pp-loader").classList.remove("active");
@@ -337,6 +360,36 @@ function bodyScrollingToggle() {
     }
   }
 
+  function checkHashAndOpenProject() {
+    const hash = window.location.hash;
+    const match = hash.match(/^#project-(\d+)$/);
+    if (match) {
+      const projectId = "project-" + match[1];
+      let foundIndex = -1;
+      portfolioItems.forEach((item, index) => {
+        const img = item.querySelector(".portfolio-item-img img");
+        if (img) {
+          const src = img.getAttribute("src");
+          if (src && src.includes(projectId)) {
+            foundIndex = index;
+          }
+        }
+      });
+      if (foundIndex !== -1) {
+        openProject(foundIndex);
+      }
+    } else {
+      if (popup.classList.contains("open")) {
+        popupToggle();
+        if (projectDetailsContainer.classList.contains("active")) {
+          popupDetailsToggle();
+        }
+      }
+    }
+  }
+
+  window.addEventListener("hashchange", checkHashAndOpenProject);
+  window.addEventListener("load", checkHashAndOpenProject);
 
 })();
 
