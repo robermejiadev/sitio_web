@@ -2,7 +2,8 @@
 FUENTES
 ================ */
 /* @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 /* ================ 
 ESTILOS GLOBALES
@@ -77,7 +78,8 @@ body.hidden-scrolling {
 
 *:not(i) {
   /* font-family: "Raleway", sans-serif; */
-  font-family: 'Inter', sans-serif;
+  /* font-family: 'Inter', sans-serif; */
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 400;
 }
 
@@ -98,7 +100,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 700;
 }
 
@@ -684,7 +686,7 @@ NAVEGACIÓN MENÚ
   font-style: italic;
   margin: 0;
   text-transform: capitalize;
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .home-section .home-text .btn-1 {
@@ -768,7 +770,7 @@ NAVEGACIÓN MENÚ
 }
 
 .about-section .about-info p {
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 16px;
   line-height: 26px;
   margin-bottom: 15px;
@@ -808,7 +810,7 @@ NAVEGACIÓN MENÚ
 }
 
 .about-section .about-tabs .tab-item.active {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .about-section .tab-content {
@@ -1113,7 +1115,7 @@ EFECTO DEGRADADO PARA ICONOS DE SERVICIOS
   color: var(--text-black-600);
   line-height: 26px;
   margin: 15px 0 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 /* ================ 
@@ -1202,7 +1204,7 @@ SECCIÓN SERVICIOS
 }
 
 .service-section .service-item-inner p {
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 16px;
   color: var(--text-black-600);
   margin: 0;
@@ -1391,7 +1393,7 @@ VENTANA EMERGENTE DE PORTAFOLIO (popup)
   margin: 0 0 15px;
   border-bottom: 1px solid var(--bg-black-100);
   padding-bottom: 10px;
-  font-family: 'Scope One', serif;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .portfolio-popup .pp-title p span {
@@ -1727,7 +1729,7 @@ SECCIÓN DE CONTACTO
   color: var(--text-black-700);
   margin: 15px 0 10px;
   text-transform: capitalize;
-  font-family: 'Blinker', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .contact-section .contact-item-inner p {
@@ -1736,7 +1738,7 @@ SECCIÓN DE CONTACTO
   line-height: 26px;
   margin: 0;
   word-break: break-word;
-  font-family: 'Scope One', serif;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .contact-section .contact-form {
@@ -1771,7 +1773,7 @@ SECCIÓN DE CONTACTO
   font-size: 16px;
   padding: 0 15px;
   color: var(--text-black-700);
-  font-family: 'Scope One', serif;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .contact-section .input-group textarea.input-control {
@@ -1804,7 +1806,7 @@ SECCIÓN DE CONTACTO
   position: relative;
   top: -25px;
   color: var(--bg-black-800);
-  font-family: 'Blinker', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
 
 }
 /* ================ 
