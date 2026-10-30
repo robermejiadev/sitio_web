@@ -710,6 +710,12 @@ NAVEGACIÓN MENÚ
 /* ================ 
   SECCIÓN ACERCA
   ================ */
+.about-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
 
 .about-section {
   padding: 125px 0px 0px 0px;

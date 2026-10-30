@@ -1,4 +1,4 @@
-@media(max-width: 1410px){
+﻿@media(max-width: 1410px){
     .effect-4 {
         left: 15%;
         top: 20%;
@@ -256,7 +256,8 @@ REVISIÓN DE VISIBILIDAD DE MENÚ
         font-size: 45px;
     }
     .about-section .about-info .btn-1{
-        margin: 50px 0 0 0;
+        flex: 0 0 200px; 
+        white-space: nowrap;
     }
     .style-switcher .s-icon i {
         background-color: var(--bg-black-50);
