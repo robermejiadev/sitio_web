@@ -714,7 +714,10 @@ NAVEGACIÓN MENÚ
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .about-section {
@@ -788,7 +791,12 @@ NAVEGACIÓN MENÚ
 }
 
 .about-section .about-info .btn-1 {
-  margin: 20px 20px 0 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
 }
 
 .about-section .about-tabs {
